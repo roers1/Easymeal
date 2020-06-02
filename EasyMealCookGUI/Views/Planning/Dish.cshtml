@@ -1,0 +1,206 @@
+﻿@model OverviewModel
+
+@if (Model.course == "starter")
+{
+    @foreach (var d in Model.Dishes.Where(d => d.Starter == true))
+    {
+        @if (d != null)
+        {
+            <tr>
+                <th>Starter</th>
+                <th> <img class="img-responsive img-thumbnail mh-100" style="max-width: 200px; max-height: 200px; object-fit:cover;" src="data:image/jpeg;base64,@Convert.ToBase64String(d.Image)" /></th>
+                <th>@d.Name</th>
+                <th>
+
+                    @if (Model.card.DayOfTheWeek.Where(temp => temp.dayNr == Model.dayNr) != null)
+                    {
+                        @if (Model.card.DayOfTheWeek.Any(day => day.dayNr == Model.dayNr))
+                        {
+                            @foreach (var day in Model.card.DayOfTheWeek.Where(day => day.dayNr == Model.dayNr))
+                            {
+                                if (day.Dishes.Any(dish => dish.DishId == d.DishId))
+                                {
+                                    <form asp-action="RemoveFromPlanning" asp-controller="Planning" method="post">
+                                        <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                        <input type="hidden" name="DishId" value=@d.DishId />
+                                        <button class="btn btn-danger" type="submit">
+                                            Remove
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                                        <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                        <input type="hidden" name="DishId" value=@d.DishId />
+                                        <button class="btn btn-primary" type="submit">
+                                            Add
+                                        </button>
+                                    </form>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                                <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                <input type="hidden" name="DishId" value=@d.DishId />
+                                <button class="btn btn-primary" type="submit">
+                                    Add
+                                </button>
+                            </form>
+                        }
+
+                    }
+                    else
+                    {
+                        <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                            <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                            <input type="hidden" name="DishId" value=@d.DishId />
+                            <button class="btn btn-primary" type="submit">
+                                Add
+                            </button>
+                        </form>
+                    }
+                </th>
+            </tr>
+        }
+    }
+}
+else if (Model.course == "main")
+{
+    @foreach (var d in Model.Dishes.Where(d => d.MainDish == true))
+    {
+        @if (d != null)
+        {
+            <tr>
+                <th>Main</th>
+                <th> <img class="img-responsive img-thumbnail mh-100" style="max-width: 200px; max-height: 200px; object-fit:cover;" src="data:image/jpeg;base64,@Convert.ToBase64String(d.Image)" /></th>
+                <th>@d.Name</th>
+                <th>
+
+                    @if (Model.card.DayOfTheWeek.Where(temp => temp.dayNr == Model.dayNr) != null)
+                    {
+                        @if (Model.card.DayOfTheWeek.Any(day => day.dayNr == Model.dayNr))
+                        {
+                            @foreach (var day in Model.card.DayOfTheWeek.Where(day => day.dayNr == Model.dayNr))
+                            {
+                                if (day.Dishes.Any(dish => dish.DishId == d.DishId))
+                                {
+                                    <form asp-action="RemoveFromPlanning" asp-controller="Planning" method="post">
+                                        <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                        <input type="hidden" name="DishId" value=@d.DishId />
+                                        <button class="btn btn-danger" type="submit">
+                                            Remove
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                                        <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                        <input type="hidden" name="DishId" value=@d.DishId />
+                                        <button class="btn btn-primary" type="submit">
+                                            Add
+                                        </button>
+                                    </form>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                                <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                <input type="hidden" name="DishId" value=@d.DishId />
+                                <button class="btn btn-primary" type="submit">
+                                    Add
+                                </button>
+                            </form>
+                        }
+
+                    }
+                    else
+                    {
+                        <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                            <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                            <input type="hidden" name="DishId" value=@d.DishId />
+                            <button class="btn btn-primary" type="submit">
+                                Add
+                            </button>
+                        </form>
+                    }
+                </th>
+            </tr>
+        }
+    }
+}
+else if (Model.course == "dessert")
+{
+    @foreach (var d in Model.Dishes.Where(d => d.Dessert == true))
+    {
+        @if (d != null)
+        {
+            <tr>
+                <th>Dessert</th>
+                <th> <img class="img-responsive img-thumbnail mh-100" style="max-width: 200px; max-height: 200px; object-fit:cover;" src="data:image/jpeg;base64,@Convert.ToBase64String(d.Image)" /></th>
+                <th>@d.Name</th>
+                <th>
+
+                    @if (Model.card.DayOfTheWeek.Where(temp => temp.dayNr == Model.dayNr) != null)
+                    {
+                        @if (Model.card.DayOfTheWeek.Any(day => day.dayNr == Model.dayNr))
+                        {
+                            @foreach (var day in Model.card.DayOfTheWeek.Where(day => day.dayNr == Model.dayNr))
+                            {
+                                if (day.Dishes.Any(dish => dish.DishId == d.DishId))
+                                {
+                                    <form asp-action="RemoveFromPlanning" asp-controller="Planning" method="post">
+                                        <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                        <input type="hidden" name="DishId" value=@d.DishId />
+                                        <button class="btn btn-danger" type="submit">
+                                            Remove
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                                        <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                        <input type="hidden" name="DishId" value=@d.DishId />
+                                        <button class="btn btn-primary" type="submit">
+                                            Add
+                                        </button>
+                                    </form>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                                <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                                <input type="hidden" name="DishId" value=@d.DishId />
+                                <button class="btn btn-primary" type="submit">
+                                    Add
+                                </button>
+                            </form>
+                        }
+
+                    }
+                    else
+                    {
+                        <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+                            <input type="hidden" name="DayNr" value="@Model.dayNr" />
+                            <input type="hidden" name="DishId" value=@d.DishId />
+                            <button class="btn btn-primary" type="submit">
+                                Add
+                            </button>
+                        </form>
+                    }
+                </th>
+            </tr>
+        }
+    }
+}
+
+
+

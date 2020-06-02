@@ -1,0 +1,136 @@
+﻿@model OrderModel
+
+@{
+    Day day = Model.Week.Days.First(d => d.DayOfTheWeek == Model.DayOfTheWeek);
+}
+
+@if (Model.Course == "starter")
+{
+    @if (day != null)
+    {
+        foreach (var dish in day.Dishes.Where(dish => dish.Starter))
+        {
+            <tr>
+                <td>Starter</td>
+                <td>
+                    <img class="img-responsive img-thumbnail mh-100" style="max-width: 200px; max-height: 200px; object-fit: cover;" src="data:image/jpeg;base64,@Convert.ToBase64String(dish.Image)" />
+                </td>
+                <td>@dish.Name</td>
+                <td>@dish.Description</td>
+                <td>@dish.Price</td>
+                <td>
+                    @{
+                        var current = Model.Cart.Days.First(d => d.DayNr == day.DayOfTheWeek);
+                        if (current != null && current.Dishes.Any(d => d?.DishId == dish.DishId))
+                        {
+                            <form id="AddDishForm" asp-action="RemoveFromCart" asp-controller="Order" method="post">
+                                <input type="hidden" name="dayNr" value="@Model.DayOfTheWeek" />
+                                <input type="hidden" name="DishId" value="@dish.DishId" />
+                                <button class="btn btn-danger" type="submit">
+                                    Remove
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form id="AddDishForm" asp-action="AddToCart" asp-controller="Order" method="post">
+                                <input type="hidden" name="dayNr" value="@Model.DayOfTheWeek" />
+                                <input type="hidden" name="DishId" value="@dish.DishId" />
+                                <button class="btn btn-primary" type="submit">
+                                    Add
+                                </button>
+                            </form>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    }
+}
+else if (Model.Course == "main")
+{
+    if (day != null)
+    {
+        foreach (var dish in day.Dishes.Where(dish => dish.MainDish))
+        {
+            <tr>
+                <td>Main</td>
+                <td>
+                    <img class="img-responsive img-thumbnail mh-100" style="max-width: 200px; max-height: 200px; object-fit: cover;" src="data:image/jpeg;base64,@Convert.ToBase64String(dish.Image)" />
+                </td>
+                <td>@dish.Name</td>
+                <td>@dish.Description</td>
+                <td>@dish.Price</td>
+                <td>
+                    @{
+                        var current = Model.Cart.Days.First(d => d.DayNr == day.DayOfTheWeek);
+                        if (current != null && current.Dishes.Any(d => d?.DishId == dish.DishId))
+                        {
+                            <form id="AddDishForm" asp-action="RemoveFromCart" asp-controller="Order" method="post">
+                                <input type="hidden" name="dayNr" value="@Model.DayOfTheWeek" />
+                                <input type="hidden" name="DishId" value="@dish.DishId" />
+                                <button class="btn btn-danger" type="submit">
+                                    Remove
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form id="AddDishForm" asp-action="AddToCart" asp-controller="Order" method="post">
+                                <input type="hidden" name="dayNr" value="@Model.DayOfTheWeek" />
+                                <input type="hidden" name="DishId" value="@dish.DishId" />
+                                <button class="btn btn-primary" type="submit">
+                                    Add
+                                </button>
+                            </form>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    }
+}
+else if (Model.Course == "dessert")
+{
+    if (day != null)
+    {
+        foreach (var dish in day.Dishes.Where(dish => dish.Dessert))
+        {
+            <tr>
+                <td>Dessert</td>
+                <td>
+                    <img class="img-responsive img-thumbnail mh-100" style="max-width: 200px; max-height: 200px; object-fit: cover;" src="data:image/jpeg;base64,@Convert.ToBase64String(dish.Image)" />
+                </td>
+                <td>@dish.Name</td>
+                <td>@dish.Description</td>
+                <td>@dish.Price</td>
+                <td>
+                    @{
+                        var current = Model.Cart.Days.First(d => d.DayNr == day.DayOfTheWeek);
+                        if (current != null && current.Dishes.Any(d => d?.DishId == dish.DishId))
+                        {
+                            <form id="AddDishForm" asp-action="RemoveFromCart" asp-controller="Order" method="post">
+                                <input type="hidden" name="dayNr" value="@Model.DayOfTheWeek" />
+                                <input type="hidden" name="DishId" value="@dish.DishId" />
+                                <button class="btn btn-danger" type="submit">
+                                    Remove
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form id="AddDishForm" asp-action="AddToCart" asp-controller="Order" method="post">
+                                <input type="hidden" name="dayNr" value="@Model.DayOfTheWeek" />
+                                <input type="hidden" name="DishId" value="@dish.DishId" />
+                                <button class="btn btn-primary" type="submit">
+                                    Add
+                                </button>
+                            </form>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    }
+}
+

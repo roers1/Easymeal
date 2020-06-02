@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191127163138_Initial DishData Structure Added.cs" />
+    <Compile Remove="Migrations\20191127163138_Initial DishData Structure Added.Designer.cs" />
+    <Compile Remove="Migrations\20200103135306_changed naming scheme.cs" />
+    <Compile Remove="Migrations\20200103135306_changed naming scheme.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMealCore\EasyMealCore.csproj" />
+  </ItemGroup>
+
+</Project>

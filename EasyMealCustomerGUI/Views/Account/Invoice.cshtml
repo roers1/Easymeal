@@ -1,0 +1,51 @@
+﻿@model IQueryable<Invoice>
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container login-container mt-md-5 mx-auto">
+    <div class="row">
+        @if (TempData["msg"] != null)
+        {
+            <div class="btn mt-2 mx-auto alert-success">@TempData["msg"]</div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-auto">
+            <div class="btn-group-vertical">
+                <a class="btn btn-light" asp-action="Details" asp-controller="Account">Account</a>
+                <a class="btn btn-light" asp-action="Invoice" asp-controller="Account">Invoice</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <p>Select your invoice months</p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Year</th>
+                    <th scope="col">Month</th>
+                    <th scope="col">#</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var invoice in Model)
+                    {
+                        <tr>
+                            <td>@invoice.OrderDate.Year</td>
+                            <td>@invoice.OrderDate.Month</td>
+                            <td>
+                                <form id="AddDishForm" asp-action="InvoiceDetails" asp-controller="Account" method="post">
+                                    <input type="hidden" name="invoiceId" value="@invoice.InvoiceId" />
+                                    <button class="btn btn-info" type="submit">
+                                        Go
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+           
+        </div>
+    </div>
+</div>

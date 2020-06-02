@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EasyMealCore.DomainModel.Dish>
+
+    <div>
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success"> @TempData["message"]</div>
+        }
+        <form asp-action="AddToPlanning" asp-controller="Planning" method="post">
+            <select name="DayNr">
+                <option value="1">Maandag</option>
+                <option value="2">Dinsdag</option>
+                <option value="3">Woensdag</option>
+                <option value="4">Donderdag</option>
+                <option value="5">Vrijdag</option>
+                <option value="6">Zaterdag</option>
+                <option value="7">Zondag</option>
+            </select>
+
+            <select name="DishId">
+                @foreach (var d in Model)
+                {
+                    @if (d != null)
+                    {
+                        <option value="@d.DishId">@d.Name</option>
+                    }
+
+                }
+            </select>
+
+            <button type="submit">
+                Voeg toe aan planning
+            </button>
+        </form>
+        <br />
+        <a asp-action="Overview" asp-controller="Planning">Ga naar overzicht pagina</a>
+    </div>

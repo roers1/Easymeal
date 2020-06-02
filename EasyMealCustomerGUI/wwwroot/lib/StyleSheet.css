@@ -1,0 +1,66 @@
+﻿.dish_line {
+	margin: 0;
+	margin-top: 1rem;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.dish_image {
+	width: 16.666666%;
+}
+
+.dish_image img {
+	max-width: 100%;
+	width: auto;
+	height: auto !important;
+	vertical-align: middle;
+}
+
+.dish_details {
+	width: 50%;
+}
+
+.dish-details {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.dish_title {
+	width: 50%;
+}
+
+.dish_description {
+	width: 50%;
+}
+
+.misc_row {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.dish_misc {
+	width: 33.333333%;
+}
+
+.dish_price {
+	margin-left: auto;
+	text-align: right;
+}
+
+.overviewConstraint {
+	position: relative;
+	margin: 0 auto;
+	min-width: 20rem;
+	max-width: 80rem;
+}
+
+.week_name {
+	margin-top: 1rem;
+}

@@ -1,0 +1,15 @@
+﻿@using EasyMealCore.DomainModel
+@model IEnumerable<EasyMealCore.DomainModel.Dish>
+@{
+    ViewData["Title"] = "dishOverview";
+}
+
+    @foreach (Dish d in Model)
+    {
+        <p>@d.Name</p>
+        <br />
+    }
+
+
+
+

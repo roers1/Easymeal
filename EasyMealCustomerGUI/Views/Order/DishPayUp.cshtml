@@ -1,0 +1,92 @@
+﻿@model OrderModel
+@{
+    ViewData["Title"] = "DishPayUp";
+}
+
+@foreach (var day in Model.Cart.Days)
+{
+    <div class="week_name">
+        @switch (day.DayNr)
+        {
+            case 1:
+                <p>Monday</p>
+                break;
+            case 2:
+                <p>Tuesday</p>
+                break;
+            case 3:
+                <p>Wednesday</p>
+                break;
+            case 4:
+                <p>Thursday</p>
+                break;
+            case 5:
+                <p>Friday</p>
+                break;
+            case 6:
+                <p>Saturday</p>
+                break;
+            case 7:
+                <p>Sunday</p>
+                break;
+        }
+    </div>
+    <hr />
+    @foreach (var dish in day.Dishes)
+    {
+        <div class="dish_line">
+            <div class="dish_image">
+                <img src="data:image/jpeg;base64,@Convert.ToBase64String(dish.Image)" />
+            </div>
+            <div class="dish_details">
+                <div class="dish-details">
+                    <div class="dish_title">
+                        @dish.Name
+                    </div>
+                    <div class="dish_description">
+                        @dish.Description
+                    </div>
+                </div>
+            </div>
+            <div class="dish_misc">
+                <div class="misc_row">
+                    <div class="dish_price">
+                        @($"{dish.Price:C2}")
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <select form="saveOrder" name="@GetDay(@day.DayNr)">
+        <option id="small" value="0">small</option>
+        <option id="medium" selected="selected" value="1">medium</option>
+        <option id="large" value="2">large</option>
+    </select>
+}
+
+@functions
+{
+
+    public string GetDay(int dayNr)
+    {
+        switch (dayNr)
+        {
+            case 1:
+                return "mondaySize";
+            case 2:
+                return "tuesdaySize";
+            case 3:
+                return "wednesdaySize";
+            case 4:
+                return "thursdaySize";
+            case 5:
+                return "fridaySize";
+            case 6:
+                return "saturdaySize";
+            case 7:
+                return "sundaySize";
+        }
+        return null;
+    }
+}
+

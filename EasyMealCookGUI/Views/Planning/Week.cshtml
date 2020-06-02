@@ -1,0 +1,20 @@
+﻿@model EasyMealCore.DomainModel.CookModels.Card
+@{
+    ViewData["Title"] = "StepOne";
+}
+
+@await Html.PartialAsync("Steps", Model)
+
+<div class="container login-container mt-md-2">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <p>Select the week for the planning:</p>
+            <form>
+                <div class="form-group">
+                    <input class="form-control" type="date" id="last-start-date" name="date" value="@string.Format("{0:yyyy-MM-dd}", Model.PlanningForWeek)" />
+                </div>
+                <button asp-action="SaveWeek" asp-controller="Planning" type="submit">Next step</button>
+            </form>
+        </div>
+    </div>
+</div>

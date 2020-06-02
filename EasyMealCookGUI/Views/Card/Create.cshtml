@@ -1,0 +1,61 @@
+﻿@model EasyMealCore.DomainModel.Dish
+<div class="formContainer">
+    <div class="createMeal">
+        <form asp-action="Create" method="post">
+            <input type="hidden" asp-for="DishId" />
+            <div class="container">
+                <div><span asp-validation-for="Name" class="text-danger"></span></div>
+                <div class="propertyRow">
+                    <label class="property" asp-for="Name"></label>
+                    <input asp-for="Name" />
+                </div>
+                <div><span asp-validation-for="Description" class="text-danger"></span></div>
+                <div class="propertyRow">
+                    <label class="property" asp-for="Description"></label>
+                    <input asp-for="Description" />
+                </div>
+                <div class="propertyRow">
+                    <div><span asp-validation-for="Price" class="text-danger"></span></div>
+                    <label class="property" asp-for="Price"></label>
+                    <input asp-for="Price" />
+                </div>
+                <div class="propertyRow">
+                    <p>Course: </p><input asp-for="Starter" />
+                    <label class="property" asp-for="Starter"></label>
+
+                </div>
+                <div class="propertyRow">
+                    <input asp-for="MainDish" />
+                    <label class="property" asp-for="MainDish"></label>
+
+                </div>
+                <div class="propertyRow">
+                    <input asp-for="Dessert" />
+                    <label class="property" asp-for="Dessert"></label>
+
+                </div>
+                <div class="propertyRow">
+                    <p>Course: </p> <input asp-for="Salt" />
+                    <label class="property" asp-for="Salt"></label>
+
+                </div>
+                <div class="propertyRow">
+                    <input asp-for="Diabetes" />
+                    <label class="property" asp-for="Diabetes"></label>
+
+                </div>
+                <div class="propertyRow">
+                    <input asp-for="Glutes" />
+                    <label class="property" asp-for="Glutes"></label>
+
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <a asp-action="Index" asp-controller="home" class="btn btn-secondary">Cancel</a>
+                </div>
+            </div>
+                
+</form>
+    </div>
+    </div>
+

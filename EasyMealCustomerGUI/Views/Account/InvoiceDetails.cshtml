@@ -1,0 +1,56 @@
+﻿@model Invoice
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container login-container mt-md-5 mx-auto">
+    <div class="row">
+        @if (TempData["msg"] != null)
+        {
+            <div class="btn mt-2 mx-auto alert-success">@TempData["msg"]</div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-auto">
+            <div class="btn-group-vertical">
+                <a class="btn btn-light" asp-action="Details" asp-controller="Account">Account</a>
+                <a class="btn btn-light" asp-action="Invoice" asp-controller="Account">Invoice</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <p>Klantnummer: </p>
+            <p>@Model.CustomerId</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @{
+                    decimal totalprice = 0;
+                }
+                @foreach (var invoiceLine in Model.InvoiceLines)
+                {
+                    <tr>
+                        <td>@invoiceLine.Name</td>
+                        <td>@($"{invoiceLine.Price:C2}")</td>
+                        <td>@invoiceLine.DeliveryDate.ToShortDateString()</td>
+                    </tr>
+                    totalprice += invoiceLine.Price;
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>@($"{totalprice:C2}")</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

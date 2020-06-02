@@ -1,0 +1,25 @@
+﻿@model IEnumerable<EasyMealCore.DomainModel.Dish>
+
+    <div class="Container">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success"> @TempData["message"]</div>
+        }
+        <h1>Starters</h1>
+        @foreach (var d in Model.Where(d => d.Starter == true))
+        {
+            @await Html.PartialAsync("dish", d)
+        }
+        <h1>Main Dish</h1>
+        @foreach (var d in Model.Where(d => d.MainDish == true))
+        {
+            @await Html.PartialAsync("dish", d)
+        }
+        <h1>Dessert</h1>
+        @foreach (var d in Model.Where(d => d.Dessert == true))
+        {
+            @await Html.PartialAsync("dish", d)
+        }
+    </div>
+
+

@@ -1,0 +1,417 @@
+﻿@using EasyMealCore.DomainModel
+@model EasyMealCore.DomainModel.CookModels.Card
+@{
+    ViewData["Title"] = "Overview";
+}
+<div class="Container">
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-warning"> @TempData["message"]</div>
+    }
+    <div class="row">
+        <h1 class="mx-auto">Overview</h1>
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Starters</th>
+                                <th scope="col">Mains</th>
+                                <th scope="col">Desserts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Monday</th>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 1))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Starter == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 1))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.MainDish == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 1))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Dessert == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tuesday</th>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 2))
+                                            {
+                                                @foreach (Dish dish in d.Dishes)
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 2))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.MainDish == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 2))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Dessert == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wednesday</th>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 3))
+                                            {
+                                                @foreach (Dish dish in d.Dishes)
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 3))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.MainDish == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 3))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Dessert == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Thursday</th>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 4))
+                                            {
+                                                @foreach (Dish dish in d.Dishes)
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 4))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.MainDish == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 4))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Dessert == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Friday</th>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 5))
+                                            {
+                                                @foreach (Dish dish in d.Dishes)
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 5))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.MainDish == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 5))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Dessert == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Saturday</th>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 6))
+                                            {
+                                                @foreach (Dish dish in d.Dishes)
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 6))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.MainDish == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 6))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Dessert == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sunday</th>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 7))
+                                            {
+                                                @foreach (Dish dish in d.Dishes)
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 7))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.MainDish == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="table">
+                                        <tbody>
+                                            @foreach (var d in Model.DayOfTheWeek.Where(d => d.dayNr == 7))
+                                            {
+                                                @foreach (Dish dish in d.Dishes.Where(dish => dish.Dessert == true))
+                                                {
+                                                    <tr>
+                                                        <th>@dish.DishId</th>
+                                                        <th>@dish.Name</th>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <p class="mx-auto">
+                        Planning for week: @Model.PlanningForWeek.ToShortDateString()
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 mx-auto">
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="btn btn-info" asp-action="save" asp-controller="Planning">Publish</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <p class="col-auto mx-auto">
+                You haven't made a planning yet, quickly go and make one!
+            </p>
+        </div>
+    }
+</div>

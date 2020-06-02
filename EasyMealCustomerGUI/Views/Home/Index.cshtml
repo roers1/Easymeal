@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="grid">
+    <div class="row">
+        @if (TempData["message"] != null)
+        {
+            <div class="btn mt-2 mx-auto alert-success">@TempData["message"]</div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-2 mx-auto align-content-center text-center">
+            <img class="mb-3" style="max-height:80px;" src="~/Images/Logo.png" />
+            <h2 class="text-center">
+                Meer variatie en gezonder vanaf nu.
+            </h2>
+            <p class="text-center">
+                Healthy Easy Meal staat ervoor om ieder huishouden een zo goed mogelijke avond maaltijd te bieden.
+            </p>
+            <div class="row">
+                <div class="col mx-auto text-center">
+                    <p>We bieden:</p>
+                    <div class="row mx-auto">
+                        <div class="col flex-wrap">
+                            <li>Glutenvrije maaltijden</li>
+                            <li>Zoutvrije maaltijden</li>
+                            <li>Diabetes geschikte maaltijden</li>
+                            <li>Scherpe prijzen</li>
+                            <li>Talrijke keuzes per week</li>
+                        </div>
+                    </div>
+                    <a class="btn btn-info" asp-controller="Order" asp-action="Monday">Bestel nu!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

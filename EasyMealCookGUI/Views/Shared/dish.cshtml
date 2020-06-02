@@ -1,0 +1,28 @@
+﻿@model EasyMealCore.DomainModel.Dish
+
+<div class="meal">
+    <img class="mealImage" src="~/Images/soep-van-tomaten-en-puntpaprikas_4.jpg" />
+    <div class="information">
+        <h3 class="title">@Model.Name</h3>
+        <p class="description">@Model.Description</p>
+    </div>
+    <div class="price">
+        <h4>@Model.Price.ToString("c")</h4>
+    </div>
+    @*@if (Model.Active)
+    {
+        <form asp-action="remove" asp-controller="Card">
+            <input type="hidden" name="DishId" value="@Model.DishId" />
+            <button type="submit" class="btn btn-sm btn-danger">remove</button>
+        </form>
+    }
+    else
+    { <form asp-action="add" asp-controller="Card">
+            <input type="hidden" name="DishId" value="@Model.DishId" />
+            <button type="submit" class="btn btn-sm btn-danger">add</button>
+        </form>
+    }*@
+</div>
+
+<br />
+<hr class="mealSeparator" />

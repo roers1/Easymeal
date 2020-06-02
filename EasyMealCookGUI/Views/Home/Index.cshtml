@@ -1,0 +1,14 @@
+﻿<div class="grid">
+    <div class="row">
+        @if (TempData["message"] != null)
+        {
+            <div class="btn mt-2 mx-auto alert-success">@TempData["message"]</div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-2 mx-auto btn-group-vertical">
+            <a class="btn btn-light" asp-action="create" asp-controller="Dish">Create a new dish</a>
+            <a class="btn btn-light" asp-action="Week" asp-controller="Planning">Create a new planning</a>
+        </div>
+    </div>
+</div>

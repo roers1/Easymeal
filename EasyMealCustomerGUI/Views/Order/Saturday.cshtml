@@ -1,0 +1,64 @@
+﻿@model OrderModel
+
+@{
+    ViewData["Title"] = "Saturday";
+}
+
+@await Html.PartialAsync("Steps", Model)
+<div class="row">
+    <h1 class="mx-auto">Saturday</h1>
+</div>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Course</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{starter();}
+                @await Html.PartialAsync("Dish", Model)
+                @{main();}
+                @await Html.PartialAsync("Dish", Model)
+                @{dessert();}
+                @await Html.PartialAsync("Dish", Model)
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-2">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class=page-link asp-action="Friday" asp-controller="Order">Previous</a>
+                        </li>
+                        <li class="page-item">
+                            <a class=page-link asp-action="Sunday" asp-controller="Order">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions{
+    public void starter()
+    {
+        Model.Course = "starter";
+    }
+
+    public void main()
+    {
+        Model.Course = "main";
+    }
+
+    public void dessert()
+    {
+        Model.Course = "dessert";
+    }
+}

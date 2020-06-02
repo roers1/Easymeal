@@ -1,0 +1,74 @@
+﻿@model RegisterModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container login-container mt-md-5 mx-auto">
+    <div class="row">
+        @if (TempData["msg"] != null)
+        {
+            <div class="btn mt-2 mx-auto alert-success">@TempData["msg"]</div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-auto">
+            <div class="btn-group-vertical">
+                <a class="btn btn-light" asp-action="Details" asp-controller="Account">Account</a>
+                <a class="btn btn-light" asp-action="Invoice" asp-controller="Account">Invoice</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <h3>Register</h3>
+            <form asp-action="Details" asp-controller="Account" method="post">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="Your First Name *" value="@Model.FirstName" asp-for="FirstName" />
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="Your Last Name *" value="@Model.LastName" asp-for="LastName" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="New password *" value="@Model.Password" asp-for="Password" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Telephone Number *" value="@Model.PhoneNumber" asp-for="PhoneNumber" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Email *" value="@Model.Email" asp-for="Email" readonly />
+                </div>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-5 pt-0">Restrictions:</legend>
+                        <div class="col-sm-7">
+                            <div class="form-check">
+                                <div><span asp-validation-for="glutes" class="text-danger"></span></div>
+                                <input class="form-check-input" type="checkbox" id="Starter" value="@Model.glutes" asp-for="glutes">
+                                <label class="form-check-label">
+                                    Glutes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <div><span asp-validation-for="diabetes" class="text-danger"></span></div>
+                                <input class="form-check-input" type="checkbox" id="MainDish" value="@Model.diabetes" asp-for="diabetes">
+                                <label class="form-check-label">
+                                    Diabetes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <div><span asp-validation-for="salt" class="text-danger"></span></div>
+                                <input class="form-check-input" type="checkbox" id="Dessert" value="@Model.salt" asp-for="salt">
+                                <label class="form-check-label">
+                                    Salt
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Save" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
